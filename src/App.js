@@ -5,7 +5,7 @@ import Header from "./components/header/header.component";
 import { Switch, Route } from "react-router-dom";
 import SignUpAndSignIn from "./pages/sign-in-up/sign-in-up.component";
 import React from "react";
-import { auth } from "./firebase/firebase.utils";
+import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 
 class App extends React.Component {
   constructor() {
@@ -24,12 +24,53 @@ class App extends React.Component {
     // which might cause memory leaks
     // so we need to unsub to avoid memory leaks
     // this will return a function that closes the sub when we call it
-    this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       // firebase sends authenticated user as  a func arugment
       // and then we could use that arguemnt in our inner call back
       // to make changes to the state
-      this.setState({ currentUser: user });
-      console.log(user);
+      // we are getting back a user auth object represinting the current user in auth
+      // and then passing it to a function that queries something from the doc element
+
+      if (userAuth) {
+        const userRef = createUserProfileDocument(userAuth);
+
+        // on snap shot updates in case of snapshot updates and also returns a copy of the snapshot
+        (await userRef).onSnapshot((snapshot) => {
+          // **here where we can get the data of the user
+          // by that point what am doing here is gettig the data of the
+          // newely created user or that the user that actually existed before
+          // simply that means that am getting my data to add to my state
+          // **in order to display it on the user because later on i will have another collection added ot each user which is gonna be his/her cart items
+
+          // **snapshot doesnt actually return data
+          // it only returns data properties
+          // console.log(snapshot);
+          // **we could get the data by using snapshot.data()**
+          // console.log(snapshot.data());
+
+          this.setState(
+            {
+              currentUser: {
+                id: snapshot.id,
+                // spreading the rest of the data
+                ...snapshot.data(),
+              },
+            },
+            // **callback of setstate
+            () => console.log(this.state)
+          );
+        });
+      } else {
+        // if there is not user authed
+        this.setState(
+          // setting the current user to the user in auth
+          { currentUser: userAuth },
+          // **callback of setstate
+          () => console.log(this.state)
+        );
+      }
+      // this.setState({ currentUser: user });
+      // we need to use the uid to get the users info
     });
   }
   componentWillUnmount() {
