@@ -18,7 +18,7 @@ class ShopPage  extends React.Component{
         console.log(collections)
         return(
                 <div className="shop-page">
-                    <h1>Collections</h1>
+                    <h1 className="shop-header">Collections</h1>
                     {
                         collections.map(({id,...otherProps})=>{
 

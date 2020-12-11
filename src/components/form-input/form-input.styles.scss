@@ -1,0 +1,45 @@
+$sub-color: grey;
+$main-color: black;
+.input-container {
+  width: 100%;
+  position: relative;
+
+  .form-input {
+    border: none;
+    border-bottom: 1px solid $sub-color;
+    width: 100%;
+    display: block;
+    padding: 1.5rem 1.5rem 1.5rem 0.5rem;
+    margin-bottom: 4rem;
+    font-size: 1.8rem;
+    background: none;
+
+    &::placeholder {
+      display: inline-block;
+      padding-bottom: 1rem;
+      font-family: "Open Sans Condensed", sans-serif;
+      font-weight: 500;
+      color: rgb(102, 97, 97);
+    }
+    &:focus {
+      outline: none;
+    }
+    &[type="password"] {
+      letter-spacing: 0.3rem;
+    }
+  }
+
+  .form-input:focus + label {
+    transform: translateY(-3rem);
+  }
+  label {
+    position: absolute;
+    top: 1rem;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+  }
+}
+label[class="shrink"] {
+  transform: translateY(-3rem);
+}
+

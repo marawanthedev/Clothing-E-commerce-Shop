@@ -1,0 +1,31 @@
+.sign-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-between;
+  width: 45%;
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-between;
+    padding: 1rem 0;
+  }
+  .input-group {
+    margin: 3.5rem 0;
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 3.5rem 0;
+      width: 100%;
+    }
+  }
+  .main {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  .sub {
+    font-weight: 500;
+  }
+}
