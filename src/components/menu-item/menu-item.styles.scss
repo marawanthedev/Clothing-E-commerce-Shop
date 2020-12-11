@@ -10,7 +10,6 @@
   border-radius: 3px;
   margin: 0 7.5px 15px;
   position: relative;
-  font-family: "Open Sans Condensed", sans-serif;
   text-transform: uppercase;
   overflow: hidden;
   &:hover {
@@ -35,10 +34,10 @@
   }
 
   &.large {
-    height: 380px;
+    height: 370px;
   }
   &.medium {
-    height: 240px;
+    height: 265px;
   }
   &:last-child {
     margin-left: 7.5px;
@@ -55,7 +54,7 @@
     background-color: white;
     border: none;
     outline: none;
-    padding: 6.5rem 4rem;
+    padding: 5rem 3rem;
     border-radius: 3px;
     opacity: 0.7;
     transition: all 0.3s ease-in-out;
