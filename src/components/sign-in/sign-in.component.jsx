@@ -3,6 +3,7 @@ import "./sign-in.styles.scss";
 import FormInput from "../../components/form-input/form-input.component"
 import CustomButton from "../button/button.component";
 import {signInWithGoogle} from "../../firebase/firebase.utils"
+import {auth} from '../../firebase/firebase.utils'
 class SignIn extends React.Component{
 
     constructor(props){
@@ -13,10 +14,20 @@ class SignIn extends React.Component{
             password:""
         }
     }
-    handleSubmit(e){
-
-        alert("Submitted");
+    handleSubmit=async(e)=>{
         e.preventDefault();
+        // prevent default has to be called before using fire base auth methods
+        // otherwise it wont work
+        const {email,password}=this.state;
+        try{
+            // checking if the inputted email and passowrd match in the db
+            await auth.signInWithEmailAndPassword(email,password)
+            this.setState({email:"",
+            password:""});
+        }
+        catch(err){
+            console.error(err)
+        }
     }
     handleChange=(e)=>{
         const {value,name}=e.target;
