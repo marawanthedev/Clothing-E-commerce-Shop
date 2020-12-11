@@ -54,8 +54,9 @@ class Directory extends React.Component{
             <div className="directory-menu">
 
                     {/* destructring the required info from an object */}
-                {this.state.sections.map(({title,id,imageUrl,linkUrl,size})=> <MenuItem title={title} id={id}
-                imageUrl={imageUrl} linkUrl={linkUrl} size={size} ></MenuItem>)}
+                    {/* spreading the values of the object */}
+                {this.state.sections.map(({...sectionProps})=> 
+                <MenuItem  {...sectionProps} ></MenuItem>)}
                 
 
             </div>
