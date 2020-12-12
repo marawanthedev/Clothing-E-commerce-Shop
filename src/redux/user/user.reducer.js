@@ -1,5 +1,5 @@
 // gets 2 props prev state and action
-
+import {UserActionTypes} from "./user.types"
 {
   // type:
   // payload:
@@ -25,7 +25,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
   // **which means that in case of not matching any cases we are returning the prev state that was passed by redux it self
 
   switch (action.type) {
-    case "SET_CURRENT_USER":
+    case UserActionTypes.SET_CURRENT_USER:
       return {
         //   **creating a new object which gets populated by a spread of the state which contains the prev state object including the current user but we are overwriting it and the reason it works bcs there is an actual new object creation in which we are modifying the data at, we are not modifiying an existing prop object we are creating a new object and then modify it before passing it so the components can re-render
         ...state,

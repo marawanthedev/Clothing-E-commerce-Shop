@@ -2,7 +2,7 @@ import "./App.css";
 import HomePage from "./pages/homepage/homepage.component";
 import ShopPage from "./pages/shop/shop.component";
 import Header from "./components/header/header.component";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import SignUpAndSignIn from "./pages/sign-in-up/sign-in-up.component";
 import React from "react";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
@@ -60,7 +60,19 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={HomePage}></Route>
           <Route path="/shop" component={ShopPage}></Route>
-          <Route path="/signin" component={SignUpAndSignIn}></Route>
+          {/* in order to apply redirect path has to exact */}
+          {/* and use render instead of component */}
+          {/* and this will be conditinally rendering a component depending on the userstate */}
+          {/* way 1 */}
+          {/* <Route exact path="/signin" render={this.props.currentUser?HomePage:SignUpAndSignIn}></Route> */}
+          {/* way2 */}
+          <Route
+            exact
+            path="/signin"
+            render={() =>
+              this.props.currentUser ? <Redirect to="/" /> : <SignUpAndSignIn />
+            }
+          ></Route>
         </Switch>
       </div>
     );
@@ -79,7 +91,12 @@ const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
   // **its more like dispatch(type="setcurrent user" payload:user)
 });
+
+// state gets passed to here so we are destructruing our user resolvers
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser,
+});
 // **anything is being passed as aprop
 // either action or getters
 // **its all props
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
