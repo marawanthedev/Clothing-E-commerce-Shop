@@ -68,6 +68,7 @@ export const createUserProfileDocument = async (userAuth, additionData) => {
       // holy fucking moly istanbul i wish i did understand this before
       // it could have saved hours and hours of stupidity
       // now life is easier as a js developer
+      // destructing info from user auth object
       const { displayName, email } = userAuth;
       //   console.log(displayName);
       //   console.log(email);
@@ -85,7 +86,7 @@ export const createUserProfileDocument = async (userAuth, additionData) => {
           displayName,
           email,
           createdAt,
-          // additionmal data spreading
+          // additional data spreading
           ...additionData,
         });
       } catch (error) {

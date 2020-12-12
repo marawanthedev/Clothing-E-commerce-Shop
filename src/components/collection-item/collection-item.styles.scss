@@ -4,13 +4,21 @@
   flex-direction: column;
   height: 400px;
   align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+  &:hover {
+    .image {
+      width: 100%;
+    }
+  }
 
   .image {
-    width: 100%;
+    width: 115%;
     height: 95%;
     background-size: cover;
     background-position: center;
     margin-bottom: 5px;
+    transition: all 0.3s ease-in-out;
   }
 
   .collection-footer {

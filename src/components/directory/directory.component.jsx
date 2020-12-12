@@ -56,7 +56,7 @@ class Directory extends React.Component{
                     {/* destructring the required info from an object */}
                     {/* spreading the values of the object */}
                 {this.state.sections.map(({...sectionProps})=> 
-                <MenuItem  {...sectionProps} ></MenuItem>)}
+                <MenuItem key={sectionProps.id} {...sectionProps} ></MenuItem>)}
                 
 
             </div>

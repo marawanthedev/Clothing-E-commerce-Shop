@@ -1,0 +1,8 @@
+
+#Importnat notes
+
+react components doesnt re-render unless it has recieved a new prop
+which means that modifying an exisiting redux prop will no re-render the component
+but only when creating a new prop object which is going to have some of the prev object data 
+along with the modified data and then pass it as a prop only then ti will percieved as a new prop
+not a modified prop which is gonna cause the component to re-render as expected

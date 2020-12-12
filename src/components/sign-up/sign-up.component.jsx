@@ -33,8 +33,8 @@ class SignUp extends React.Component{
                 const {user}=await auth.createUserWithEmailAndPassword(email,password);
                 // the user object is going to contain the email and password
                 // so the only missig thing here is the dispaly name so am sending it as an additional data
-                // that is being done async so we need to await it before getting the changes
                 await createUserProfileDocument(user,{displayName});
+                // that is being done async so we need to await it before getting the changes
                 // code stops here until its done before proceeding to next code
 
                 this.setState({

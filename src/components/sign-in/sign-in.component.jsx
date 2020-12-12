@@ -31,6 +31,7 @@ class SignIn extends React.Component{
     }
     handleChange=(e)=>{
         const {value,name}=e.target;
+        // similar to php assoicative arrays
        this.setState({[name]:value})
     }
     render(){
@@ -46,8 +47,6 @@ class SignIn extends React.Component{
                 <div className="button-group">
                 <CustomButton type="submit" backGroundColor="black" textContent="SIGN IN" onClick={this.handleSubmit}></CustomButton>
                 {/* google login btn */}
-                {/* <CustomButton type="submit" backGroundColor="rgba(65, 131, 215, 1)" textContent="SIGN in with google" ></CustomButton> */}
-
         <CustomButton onClick={signInWithGoogle} backGroundColor="rgba(65, 131, 215, 1)" textContent="SIGN in with google" ></CustomButton>
               
                 </div>
