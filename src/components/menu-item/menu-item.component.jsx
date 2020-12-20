@@ -4,7 +4,7 @@ import {withRouter} from "react-router-dom";
 // using the withRouter gives us the ability to get access of the parents router functinality
 // which means that i can access the history and perform url/history manipulations
 const MenuItem=({title,imageUrl,size,history,match,linkUrl,id,className})=>{
-    return  <div className={`${size} menu-item menu-item${id} ${className}`}  onClick={()=>history.push(`${match.url}${linkUrl}`)}  >
+    return  <div className={`${size} menu-item menu-item${id}  ${className?className:""} $`}  onClick={()=>history.push(`${match.url}${linkUrl}`)}  >
 
     <div className="background-img" style={{backgroundImage:`url(${imageUrl})`}}>
   

@@ -11,7 +11,6 @@ import CartDropDown from "../cart-dropdown/cart-dropdown.component"
 // which can be done by passing the current user from app to the header as a prop
 // redux state
 import {connect} from "react-redux"
-
 const Header=({currentUser})=>{
 
     return (<div className="header">

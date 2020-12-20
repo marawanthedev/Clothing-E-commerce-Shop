@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  animation-delay: 0.75s;
 
   .shopping-icon {
     width: 24px;
@@ -17,15 +18,5 @@
     font-size: 10px;
     font-weight: bold;
     bottom: 12px;
-    animation: slideDown 0.25s ease-in-out;
-  }
-}
-
-@keyframes slideDown {
-  from {
-    transform: translateY(-.5rem);
-  }
-  to {
-    transform: translateY(0rem);
   }
 }

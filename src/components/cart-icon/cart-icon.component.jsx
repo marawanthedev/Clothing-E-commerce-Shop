@@ -5,9 +5,7 @@ import {ReactComponent as ShoppingIcon} from '../../assets/cart.svg';
 import { connect } from "react-redux";
 import {ToggleCartDropDown} from "../../redux/cart/cart.actions"
 
-
-
-
+const pathname = window.location.pathname
 const CartIcon=({ToggleCartDropDown,itemCount})=>{
 
         return (    
@@ -15,13 +13,14 @@ const CartIcon=({ToggleCartDropDown,itemCount})=>{
             // passing data to a dispatch event can bne done in 2 ways
             // 1- using inner callback at the onclick event
             // 2- using an external methods that handles data manps and then dispatches
-            <div className="cart-icon" onClick={()=> ToggleCartDropDown()}>
+            <div className={`cart-icon ${pathname=="/"?"animate__animated animate__zoomInDown":""}`} onClick={()=> ToggleCartDropDown()}>
                 <ShoppingIcon className="shopping-icon"></ShoppingIcon>
-                <span className="item-count">{itemCount}</span>
+                <span className="item-count ">{itemCount}</span>
             </div>
         )
 }
 
+// HeaderView();
 
 
 
@@ -41,3 +40,36 @@ const mapStateToProps=({cart:{cartItems}})=>({
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(CartIcon);
+
+
+// class CartIcon extends React.Component{
+    //     constructor(props){
+    //         const location = useLocation();
+    
+    //         super(props);
+    //         this.state={
+    
+    //         }
+    
+    //     }
+    
+    // //  HeaderView() {
+    // //     console.log(location.pathname);
+    // //     return <span>Path : {location.pathname}</span>
+    // //   }
+    //     render(){
+    //         const {ToggleCartDropDown,itemCount}=this.props;
+    //         return (    
+    //             // excecuting a call back that calls redux action does the job instead of having diff method
+    //             // passing data to a dispatch event can bne done in 2 ways
+    //             // 1- using inner callback at the onclick event
+    //             // 2- using an external methods that handles data manps and then dispatches
+    //             <div className="cart-icon animate__animated animate__zoomInDown" onClick={()=> ToggleCartDropDown()}>
+    //                 <ShoppingIcon className="shopping-icon"></ShoppingIcon>
+    //                 <span className="item-count ">{itemCount}</span>
+    //             </div>
+    //         )
+            
+    //     }
+    // }
+    

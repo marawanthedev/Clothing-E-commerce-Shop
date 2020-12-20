@@ -46,7 +46,9 @@ class Directory extends React.Component{
                   id: 5,
                   linkUrl: 'shop/mens'
                 }
-              ]
+              ],
+
+          
         }
     }
     render(){
@@ -56,8 +58,8 @@ class Directory extends React.Component{
 
                     {/* destructring the required info from an object */}
                     {/* spreading the values of the object */}
-                {this.state.sections.map(({...sectionProps})=> 
-                <MenuItem key={sectionProps.id} {...sectionProps} ></MenuItem>)}
+                {this.state.sections.map(({...sectionProps},i)=> 
+                <MenuItem key={sectionProps.id} {...sectionProps}  ></MenuItem>)}
                 
 
             </div>

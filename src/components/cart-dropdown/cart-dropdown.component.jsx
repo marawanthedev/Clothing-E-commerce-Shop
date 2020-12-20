@@ -8,7 +8,7 @@ const CartDropDown=({showCart,cartItems})=>{
 
     return(
         showCart?
-        <div className="cart-dropdown">
+        <div className="cart-dropdown ">
         <ul className="cart-items">
         {cartItems.map(({...cartData})=>{
             return <CartItem  {...cartData}></CartItem>
