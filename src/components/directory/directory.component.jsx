@@ -2,6 +2,7 @@ import React from "react";
 import "./directory.styles.scss";
 import "../menu-item/menu-item.component"
 import MenuItem from "../menu-item/menu-item.component";
+import { sections} from "../../redux/cart/cart.data";
 class Directory extends React.Component{
 
     constructor(){

@@ -1,5 +1,6 @@
-export const ToggleCartDropDown = (showCart) => ({
+import { CartActionTypes } from "./cart.types";
+export const ToggleCartDropDown = () => ({
   // **returning action object
-  type: "TOGGLE_CART_DROP_DOWN",
-  payload: showCart,
+  type: CartActionTypes.TOGGLE_CART_DROP_DOWN,
+  payload: null,
 });

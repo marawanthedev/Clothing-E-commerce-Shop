@@ -1,10 +1,12 @@
 import React from "react";
-import ShopData from './shop.data'
-import CollectionPreview from "../../components/preview-collection/collection-preview.component"
+// import ShopData from './shop.data'
+import CollectionPreview from "../../components/preview-collection/collection-preview.component";
+import {connect} from "react-redux"
+
 class ShopPage  extends React.Component{
 
-    constructor(props){
-        super(props);
+    constructor({ShopData}){
+        super({ShopData});
 
         this.state={
             collections:ShopData
@@ -31,5 +33,15 @@ class ShopPage  extends React.Component{
 
     }
 }
-export default ShopPage;
+
+const mapStateToProps=({cart})=>({
+    // currentUser:state.user.currentUser,
+    ShopData:cart.ShopData
+});
+
+
+export default connect(mapStateToProps)(ShopPage);
+
+
+
 {/* <CollectionPreview key={id} {...otherProps}></CollectionPreview> */}
