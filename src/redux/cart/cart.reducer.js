@@ -3,10 +3,8 @@ import { ShopData } from "./cart.data";
 import { addCartItem } from "./cart.utils";
 const INITIAL_STATE = {
   showCart: false,
-
   cartItems: [],
   ShopData,
-  item: {},
 };
 const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {

@@ -1,7 +1,7 @@
 import React from "react";
 import "./cart-drop-down-items.styles.scss";
-    // make sure that you are destructing the right props names please
-    // i need typescript so fucking bad
+    // make sure that you are destructing the right props names
+    // typescript is needed :)
 export const CartItem=({imageUrl,name,quantity,price})=>{
 
     return(
