@@ -10,7 +10,8 @@
   top: 90px;
   right: 40px;
   z-index: 5;
-
+  opacity: 1;
+  animation: dropDown 0.3s ease-in-out;
   .cart-items {
     height: 300px;
     display: flex;
@@ -21,14 +22,31 @@
     // overflow-y: scroll;
   }
 
-  button {
+  .cart-btn {
     margin-top: auto;
     width: 100%;
+    transition: all 0.3s ease-in-out;
+    background-color: black;
+    &:hover {
+      border: 1px solid black;
+      color: black;
+      background-color: white;
+    }
   }
   .btn-container {
     padding: 20px 30px;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+}
+@keyframes dropDown {
+  0% {
+    opacity: 0.4;
+    transform: translateX(2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0rem);
   }
 }

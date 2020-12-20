@@ -23,6 +23,43 @@
       color: black;
       cursor: pointer;
       margin: 0rem 1rem;
+      position: relative;
+      color: black;
+      z-index: 1;
+      &::after {
+        content: "";
+        z-index: -1;
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        left: 0rem;
+        bottom: 0rem;
+        background-color: #5b84b1ff;
+
+        transform: scale(0);
+        transition: all 0.25s ease-in-out;
+      }
+      &::before {
+        content: "";
+        z-index: -1;
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        left: 0rem;
+        top: 0rem;
+        background-color: #fc766aff;
+
+        transform: scale(0);
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover {
+        // color: white;
+        &::after,
+        &::before {
+          transform: scale(1);
+        }
+      }
     }
   }
 }

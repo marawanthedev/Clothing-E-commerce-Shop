@@ -15,7 +15,7 @@ const CartDropDown=({showCart,cartItems})=>{
         })}
         </ul>
         <div className="btn-container">
-        <CustomButton textContent="Go to checkout" type="button" backGroundColor="black" className="cart-btn"></CustomButton>
+        <CustomButton textContent="Go to checkout" type="button"  className="cart-btn"></CustomButton>
         </div>
         </div>
         :null

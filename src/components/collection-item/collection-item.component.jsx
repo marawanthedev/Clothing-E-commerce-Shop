@@ -8,7 +8,7 @@ import {connect} from "react-redux";
 const CollectionItem=({name,price,imageUrl,AddCartItem,id})=>{
 
     return (
-        <div className="collection-item">
+        <div className="collection-item" >
             <div className="image" style={{backgroundImage:`url(${imageUrl})`}}></div>
             <div className="collection-footer">
                 <span className="name">{name}</span>
