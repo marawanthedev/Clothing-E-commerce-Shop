@@ -5,19 +5,16 @@ import {connect} from "react-redux"
 
 class ShopPage  extends React.Component{
 
-    constructor({ShopData}){
-        super({ShopData});
+    constructor(props){
+        super(props);
 
         this.state={
-            collections:ShopData
+            collections:this.props.ShopData
         }
     }
-    componentDidMount(){
-        console.log("mounted")
-    }
+   
     render(){
         const {collections}=this.state;
-        console.log(collections)
         return(
                 <div className="shop-page">
                     <h1 className="shop-header">Collections</h1>

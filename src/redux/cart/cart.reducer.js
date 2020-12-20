@@ -1,16 +1,12 @@
 import { CartActionTypes } from "./cart.types";
 import { ShopData } from "./cart.data";
+import { addCartItem } from "./cart.utils";
 const INITIAL_STATE = {
   showCart: false,
-  cartItems: [
-    {
-      itemName: "Brown cowbov",
-      itemPrice: 35,
-      itemQuantity: 1,
-      itemImgUrl: "https://i.ibb.co/QdJwgmp/brown-cowboy.png",
-    },
-  ],
+
+  cartItems: [],
   ShopData,
+  item: {},
 };
 const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -19,11 +15,18 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         ...state,
         showCart: !state.showCart,
       };
+
+    case CartActionTypes.ADD_CART_ITEM: {
+      return {
+        ...state,
+        // set the state cart items to action payload
+        // sending the currentCart items and the action.payload is the newely added one
+        cartItems: addCartItem(state.cartItems, action.payload),
+      };
+    }
     default:
       return state;
   }
 };
 
 export default cartReducer;
-
-// cartItems[{name,quantity,price,imageUrl}]
