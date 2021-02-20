@@ -1,3 +1,4 @@
+
 import React from "react";
 import "./cart-dropdown.styles.scss";
 import CustomButton from "../button/button.component";
@@ -10,16 +11,16 @@ const CartDropDown=({showCart,cartItems})=>{
         showCart?
         <div className="cart-dropdown ">
         <ul className="cart-items">
-        {cartItems.map(({...cartData})=>{
-            return <CartItem  {...cartData}></CartItem>
+        {cartItems.map(({...cartData},index)=>{
+            return <CartItem key={index}   {...cartData}></CartItem>
         })}
         </ul>
         <div className="btn-container">
-        <CustomButton textContent="Go to checkout" type="button"  className="cart-btn"></CustomButton>
+        <CustomButton  textContent="Go to checkout" type="button"  className="cart-btn"></CustomButton>
         </div>
         </div>
         :null
-    )
+    );
 }
 
 
@@ -28,5 +29,3 @@ const mapStateToProps=({cart})=>({
     cartItems:cart.cartItems
 });
 export default connect(mapStateToProps)(CartDropDown);
-
-

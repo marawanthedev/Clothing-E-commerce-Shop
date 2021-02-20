@@ -19,3 +19,15 @@ export const addCartItem = (previousItems, newItem) => {
     return [...previousItems, { ...newItem, quantity: 1 }];
   }
 };
+export const addCartItemQuantity = (previousItems, targetItemId) => {
+  // const targetItem = previousItems.find(
+  //   (prevItem) => prevItem.id === targetItemId
+  // );
+  // if (targetItem) {
+  //   return previousItems.map((prevItem) => {
+  //     return prevItem.id === targetItem.id
+  //       ? { ...prevItem, quantity: prevItem.quantity + 1 }
+  //       : prevItem;
+  //   });
+  // }
+};

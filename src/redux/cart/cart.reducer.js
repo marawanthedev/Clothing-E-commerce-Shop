@@ -1,6 +1,6 @@
 import { CartActionTypes } from "./cart.types";
 import { ShopData } from "./cart.data";
-import { addCartItem } from "./cart.utils";
+import { addCartItem, addCartItemQuantity } from "./cart.utils";
 const INITIAL_STATE = {
   showCart: false,
   cartItems: [],
@@ -20,6 +20,17 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         // set the state cart items to action payload
         // sending the currentCart items and the action.payload is the newely added one
         cartItems: addCartItem(state.cartItems, action.payload),
+      };
+    }
+    case CartActionTypes.INCREASE_ITEM_QUANTITY: {
+      return {
+        ...state,
+        cartItems: addCartItemQuantity(state.cartItems, action.payload),
+      };
+    }
+    case CartActionTypes.DECREASE_ITEM_QUANTITY: {
+      return {
+        ...state,
       };
     }
     default:

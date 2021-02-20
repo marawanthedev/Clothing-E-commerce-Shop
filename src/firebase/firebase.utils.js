@@ -18,7 +18,6 @@ export const createUserProfileDocument = async (userAuth, additionData) => {
   // checking if there is uses in auth or not
   // if not return if yes get the data
   if (!userAuth) return;
-  
   else {
     // **
     // two types of objects

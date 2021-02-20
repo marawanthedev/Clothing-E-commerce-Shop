@@ -14,7 +14,9 @@ const CollectionItem=({name,price,imageUrl,AddCartItem,id})=>{
                 <span className="name">{name}</span>
             <span className="price">${price}</span>
             </div>
-            <CustomButton className="collection-item-btn" type="button" textContent='Add to Cart'  onClick={()=>AddCartItem({name,id,price,imageUrl,quantity:1})}></CustomButton>
+            <CustomButton
+// @ts-ignore
+            CustomButton className="collection-item-btn" type="button" textContent='Add to Cart'  onClick={()=>AddCartItem({name,id,price,imageUrl,quantity:1})}></CustomButton>
         </div>
     )
 }   
@@ -22,7 +24,6 @@ const CollectionItem=({name,price,imageUrl,AddCartItem,id})=>{
 
 const mapDispatchToProps=(dispatch)=>({
     AddCartItem:(cartItem)=>dispatch(AddCartItem(cartItem)),
-    
 });
 
 export default connect(null,mapDispatchToProps)(CollectionItem);

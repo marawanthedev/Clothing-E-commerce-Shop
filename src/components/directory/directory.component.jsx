@@ -2,7 +2,7 @@ import React from "react";
 import "./directory.styles.scss";
 import "../menu-item/menu-item.component"
 import MenuItem from "../menu-item/menu-item.component";
-import { sections} from "../../redux/cart/cart.data";
+// import { sections} from "../../redux/cart/cart.data";
 class Directory extends React.Component{
 
     constructor(){
@@ -15,7 +15,7 @@ class Directory extends React.Component{
                   title: 'hats',
                   imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
                   id: 1,
-                  size: 'medium',
+                  size: 'medium', 
                   linkUrl: 'shop/hats'
                 },
                 {
