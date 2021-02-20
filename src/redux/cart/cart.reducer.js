@@ -25,7 +25,7 @@ const cartReducer = (state = INITIAL_STATE, action) => {
     case CartActionTypes.INCREASE_ITEM_QUANTITY: {
       return {
         ...state,
-        cartItems: addCartItemQuantity(state.cartItems, action.payload),
+        // cartItems: addCartItemQuantity(state.cartItems, action.payload),
       };
     }
     case CartActionTypes.DECREASE_ITEM_QUANTITY: {
