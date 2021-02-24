@@ -2,11 +2,11 @@ import "./App.css";
 import HomePage from "./pages/homepage/homepage.component";
 import ShopPage from "./pages/shop/shop.component";
 import Header from "./components/header/header.component";
+import CheckoutForm from "./components/checkout/checkoutForm";
 import { Switch, Route, Redirect } from "react-router-dom";
 import SignUpAndSignIn from "./pages/sign-in-up/sign-in-up.component";
 import React from "react";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
-
 // i do have the connect method imported
 import { connect } from "react-redux";
 // but we neeed to import the required actions to make to set a prop
@@ -60,6 +60,8 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={HomePage}></Route>
           <Route path="/shop" component={ShopPage}></Route>
+          <Route path="/checkout"> <CheckoutForm/></Route>
+
           {/* in order to apply redirect path has to exact */}
           {/* and use render instead of component */}
           {/* and this will be conditinally rendering a component depending on the userstate */}
@@ -73,6 +75,7 @@ class App extends React.Component {
               this.props.currentUser ? <Redirect to="/" /> : <SignUpAndSignIn />
             }
           ></Route>
+
         </Switch>
       </div>
     );

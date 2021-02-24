@@ -32,9 +32,7 @@ const mapStateToProps=({cart:{cartItems}})=>({
     // reduce takes 2 argumetns
     // 1st is a callback that takes accumaltor and the array that we are accumalting from
     // 2nd argument is the initial value of the accumulator
-    itemCount:cartItems.reduce((accumaltedQuantity,cartItem)=>accumaltedQuantity+cartItem.quantity,0),
-
-
+    itemCount:cartItems.length>0?cartItems.reduce((accumaltedQuantity,cartItem)=>accumaltedQuantity+cartItem.quantity,0):0,
    
 });
 

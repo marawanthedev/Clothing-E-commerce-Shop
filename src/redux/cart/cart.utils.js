@@ -1,4 +1,4 @@
-export const addCartItem = (previousItems, newItem) => {
+export const addCartItemUtil = (previousItems, newItem) => {
   //    using find
   // this will check if there is a duplicate
   const exisitingItem = previousItems.find(
@@ -19,15 +19,50 @@ export const addCartItem = (previousItems, newItem) => {
     return [...previousItems, { ...newItem, quantity: 1 }];
   }
 };
-export const addCartItemQuantity = (previousItems, targetItemId) => {
-  // const targetItem = previousItems.find(
-  //   (prevItem) => prevItem.id === targetItemId
-  // );
-  // if (targetItem) {
-  //   return previousItems.map((prevItem) => {
-  //     return prevItem.id === targetItem.id
-  //       ? { ...prevItem, quantity: prevItem.quantity + 1 }
-  //       : prevItem;
-  //   });
-  // }
+export const increaseCartItemQuantityUtil = (previousItems, targetItemId) => {
+  const targetItem = previousItems.find(
+    (prevItem) => prevItem.id === targetItemId
+  );
+  if (targetItem) {
+    return previousItems.map((prevItem) => {
+      return prevItem.id === targetItem.id
+        ? { ...prevItem, quantity: prevItem.quantity + 1 }
+        : prevItem;
+    });
+  }
 };
+export const decreaseCartItemQuantityUtil = (previousItems, targetItemId) => {
+  const targetItem = previousItems.find(
+    (prevItem) => (prevItem.id = targetItemId)
+  );
+
+  var updatedCartItems = [];
+  
+  previousItems.forEach((prevItem) => {
+    if (prevItem.id === targetItemId) {
+      if (prevItem.quantity > 1) {
+        updatedCartItems.push({ ...prevItem, quantity: prevItem.quantity - 1 });
+      } else {
+      }
+    } else {
+      updatedCartItems.push(prevItem);
+    }
+  });
+  return updatedCartItems;
+};
+
+export const removeCartItemUtil=(previousItems,targetItemId)=>{
+  var updatedCartItems = [];
+  previousItems.forEach((prevItem) => {
+
+    if (prevItem.id !== targetItemId) {
+      updatedCartItems.push(prevItem);
+    } 
+    else{
+      console.log(prevItem)
+    }
+  });
+  console.log(updatedCartItems)
+  return updatedCartItems;
+  
+}
