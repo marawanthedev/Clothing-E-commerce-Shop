@@ -37,7 +37,7 @@
 
     width: 100%;
     margin-top: 2rem;
-    height: 50rem;
+    max-height: 50rem;
   
 }
 &__item{
@@ -69,6 +69,29 @@
     }
    
 }
+}
+.payment-actions{
+    float: right;
+
+}
+.pay-button{
+    color:white;
+    background-color: rgb(90, 90, 204);
+    border-radius: 7.5px;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    border: none;
+    outline:none;
+    cursor: pointer;
+}
+.pay-button i{
+    margin-left: .5rem;
+}
+
+.total{
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
 }
 
 .table-headers{

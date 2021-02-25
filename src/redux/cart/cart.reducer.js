@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   showCart: false,
   cartItems: [],
   ShopData,
+  
 };
 const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {

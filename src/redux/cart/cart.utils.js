@@ -62,7 +62,6 @@ export const removeCartItemUtil=(previousItems,targetItemId)=>{
       console.log(prevItem)
     }
   });
-  console.log(updatedCartItems)
   return updatedCartItems;
   
 }

@@ -3,23 +3,53 @@ import './collection-item.styles.scss';
 import CustomButton from "../button/button.component";
 import {AddCartItem} from "../../redux/cart/cart.actions";
 import {connect} from "react-redux";
+import checkoutForm from "../checkout/checkoutForm";
 
 // ****** dispacthers have to be included in the props as well
-const CollectionItem=({name,price,imageUrl,AddCartItem,id})=>{
 
-    return (
-        <div className="collection-item" >
-            <div className="image" style={{backgroundImage:`url(${imageUrl})`}}></div>
-            <div className="collection-footer">
-                <span className="name">{name}</span>
-            <span className="price">${price}</span>
+class CollectionItem extends React.Component{
+
+ constructor(props){
+        super(props);
+
+        this.state={
+        }
+    }
+    getStars(){
+        let stars=[];
+        let rand=Math.floor(Math.random()*5);
+        console.log(rand);
+        for(let i=0;i<5;i++){
+            var starClass="fas fa-star "
+            starClass+=i<rand?"active":"not-active";
+            starClass+=" animate__animated animate__fadeInDown"
+            stars.push(<i className={starClass}></i>)
+        }
+
+        return stars;
+    }
+    render(){
+        const {name,price,imageUrl,AddCartItem,id,index}=this.props;
+        return (
+         <div className="collection-item ">
+
+         <div className="image" style={{backgroundImage:`url(${imageUrl})`}}></div>
+<span className="name">{name}</span>
+            <div className="stars">
+               
+ {this.getStars()}
             </div>
-            <CustomButton
-// @ts-ignore
-            CustomButton className="collection-item-btn" type="button" textContent='Add to Cart'  onClick={()=>AddCartItem({name,id,price,imageUrl,quantity:1})}></CustomButton>
-        </div>
-    )
-}   
+          <span className="price">$ {price}</span>
+<CustomButton
+ // @ts-ignore
+             CustomButton className="collection-item-btn" type="button" textContent='Add to Cart'  onClick={()=>AddCartItem({name,id,price,imageUrl,quantity:1})}></CustomButton>
+         </div>
+        )
+    }
+    
+}
+
+  
 
 
 const mapDispatchToProps=(dispatch)=>({
