@@ -33,16 +33,15 @@ export const increaseCartItemQuantityUtil = (previousItems, targetItemId) => {
 };
 export const decreaseCartItemQuantityUtil = (previousItems, targetItemId) => {
   const targetItem = previousItems.find(
-    (prevItem) => (prevItem.id = targetItemId)
+    (prevItem) => (prevItem.id === targetItemId)
   );
 
   var updatedCartItems = [];
-  
+
   previousItems.forEach((prevItem) => {
     if (prevItem.id === targetItemId) {
       if (prevItem.quantity > 1) {
         updatedCartItems.push({ ...prevItem, quantity: prevItem.quantity - 1 });
-      } else {
       }
     } else {
       updatedCartItems.push(prevItem);
@@ -51,17 +50,14 @@ export const decreaseCartItemQuantityUtil = (previousItems, targetItemId) => {
   return updatedCartItems;
 };
 
-export const removeCartItemUtil=(previousItems,targetItemId)=>{
+export const removeCartItemUtil = (previousItems, targetItemId) => {
   var updatedCartItems = [];
   previousItems.forEach((prevItem) => {
-
     if (prevItem.id !== targetItemId) {
       updatedCartItems.push(prevItem);
-    } 
-    else{
-      console.log(prevItem)
+    } else {
+      console.log(prevItem);
     }
   });
   return updatedCartItems;
-  
-}
+};
