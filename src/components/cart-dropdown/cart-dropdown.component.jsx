@@ -9,6 +9,10 @@ import {
   ToggleCartDropDown,
 } from "../../redux/cart/cart.actions";
 import { withRouter } from "react-router-dom";
+import {
+  selectCartItems,
+  selectShowCart,
+} from "../../redux/cart/cart.selectors";
 
 // dynamically added components
 // can not not start a new redux connection
@@ -53,9 +57,10 @@ const CartDropDown = ({
   ) : null;
 };
 
-const mapStateToProps = ({ cart }) => ({
-  showCart: cart.showCart,
-  cartItems: cart.cartItems,
+//using selectors avoids unneccsarry re-renderings
+const mapStateToProps = (state) => ({
+  showCart: selectShowCart(state),
+  cartItems: selectCartItems(state),
 });
 const mapDispatchToProps = (dispatch) => ({
   DecreaseItemQuantity: (itemId) => dispatch(DecreaseItemQuantity(itemId)),

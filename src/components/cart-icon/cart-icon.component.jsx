@@ -3,7 +3,7 @@ import "./cart-icon.styles.scss";
 import { ReactComponent as ShoppingIcon } from "../../assets/cart.svg";
 import { connect } from "react-redux";
 import { ToggleCartDropDown } from "../../redux/cart/cart.actions";
-
+import { selectCartItemsCount } from "../../redux/cart/cart.selectors";
 const pathname = window.location.pathname;
 const CartIcon = ({ ToggleCartDropDown, itemCount }) => {
   return (
@@ -29,20 +29,13 @@ const mapDispatchToProps = (dispatch) => ({
   ToggleCartDropDown: () => dispatch(ToggleCartDropDown()),
 });
 // nested destructruing
-const mapStateToProps = ({ cart: { cartItems } }) => ({
+const mapStateToProps = (state) => ({
   // itemCount:cartItems.length,
   // accumlating all the number values of each item quantity
   // reduce takes 2 argumetns
   // 1st is a callback that takes accumaltor and the array that we are accumalting from
   // 2nd argument is the initial value of the accumulator
-  itemCount:
-    cartItems.length > 0
-      ? cartItems.reduce(
-          (accumaltedQuantity, cartItem) =>
-            accumaltedQuantity + cartItem.quantity,
-          0
-        )
-      : 0,
+  itemCount: selectCartItemsCount(state),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartIcon);
