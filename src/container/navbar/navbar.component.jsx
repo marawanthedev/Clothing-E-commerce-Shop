@@ -1,19 +1,23 @@
-import "./header.styles.scss";
+import "./navbar.styles.scss";
 import { Link } from "react-router-dom";
-// we are importing this so we can signout using the header
+// we are importing this so we can sign-out using the header
 import { auth } from "../../firebase/firebase.utils";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
-import CartIcon from "../cart-icon/cart-icon.component";
+import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropDown from "../cart-dropdown/cart-dropdown.component";
 // cart actions
 // we need to let the header know if there is user in session or not
 // which can be done by passing the current user from app to the header as a prop
 // redux state
 import { connect } from "react-redux";
+import { selectCartItemsCount } from "../../redux/cart/cart.selectors";
+import { ToggleCartDropDown } from "../../redux/cart/cart.actions";
+import { selectCurrentUser } from "../../redux/user/user.selector";
+import { createStructuredSelector } from "reselect";
 
-const Header = ({ currentUser }) => {
+const Header = ({ currentUser, itemCount, dispatch, ...other }) => {
   return (
-    <div className="header">
+    <nav className="header">
       <Link to="/" className="logo-container">
         <Logo className="logo"></Logo>
       </Link>
@@ -35,15 +39,22 @@ const Header = ({ currentUser }) => {
             Sign out
           </div>
         )}
-        <CartIcon></CartIcon>
+        <CartIcon
+          //short hand for dispatch calls
+          toggleCartDropDownCallBack={() => dispatch(ToggleCartDropDown())}
+          itemCount={itemCount}
+        ></CartIcon>
       </div>
       <CartDropDown></CartDropDown>
-    </div>
+    </nav>
   );
 };
 
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
+// nested destructuring
+
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  itemCount: selectCartItemsCount,
 });
 
 export default connect(mapStateToProps)(Header);

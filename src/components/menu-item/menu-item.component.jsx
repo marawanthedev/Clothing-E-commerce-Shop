@@ -1,6 +1,6 @@
 import "./menu-item.styles.scss";
 import { withRouter } from "react-router-dom";
-// using the withRouter gives us the ability to get access of the parents router functinality
+// using the withRouter gives us the ability to get access of the parents router
 // which means that i can access the history and perform url/history manipulations
 const MenuItem = ({
   title,
@@ -31,5 +31,4 @@ const MenuItem = ({
   );
 };
 
-// giving the menu item access to the router
 export default withRouter(MenuItem);

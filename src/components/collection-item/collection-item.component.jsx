@@ -1,11 +1,9 @@
 import "./collection-item.styles.scss";
 import CustomButton from "../button/button.component";
-import { AddCartItem } from "../../redux/cart/cart.actions";
-import { connect } from "react-redux";
 
 // ****** dispacthers have to be included in the props as well
 
-const CollectionItem = (props) => {
+export default function CollectionItem(props) {
   const getStars = () => {
     let stars = [];
     let rand = Math.floor(Math.random() * 5);
@@ -19,7 +17,7 @@ const CollectionItem = (props) => {
 
     return stars;
   };
-  const { name, price, imageUrl, AddCartItem, id, index } = props;
+  const { name, price, imageUrl, addCartItemCallBack, id } = props;
 
   return (
     <div className="collection-item ">
@@ -36,14 +34,10 @@ const CollectionItem = (props) => {
         className="collection-item-btn"
         type="button"
         textContent="Add to Cart"
-        onClick={() => AddCartItem({ name, id, price, imageUrl, quantity: 1 })}
+        onClick={() =>
+          addCartItemCallBack({ name, id, price, imageUrl, quantity: 1 })
+        }
       ></CustomButton>
     </div>
   );
-};
-
-const mapDispatchToProps = (dispatch) => ({
-  AddCartItem: (cartItem) => dispatch(AddCartItem(cartItem)),
-});
-
-export default connect(null, mapDispatchToProps)(CollectionItem);
+}

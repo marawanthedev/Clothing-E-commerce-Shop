@@ -1,11 +1,13 @@
 import { CartActionTypes } from "./cart.types";
-import { ShopData } from "./cart.data";
-import { addCartItemUtil, decreaseCartItemQuantityUtil, increaseCartItemQuantityUtil,removeCartItemUtil } from "./cart.utils";
+import {
+  addCartItemUtil,
+  decreaseCartItemQuantityUtil,
+  increaseCartItemQuantityUtil,
+  removeCartItemUtil,
+} from "./cart.utils";
 const INITIAL_STATE = {
   showCart: false,
   cartItems: [],
-  ShopData,
-  
 };
 const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -35,21 +37,19 @@ const cartReducer = (state = INITIAL_STATE, action) => {
     case CartActionTypes.DECREASE_ITEM_QUANTITY: {
       return {
         ...state,
-          cartItems:decreaseCartItemQuantityUtil(
-            state.cartItems,
-            action.payload,
-          )
+        cartItems: decreaseCartItemQuantityUtil(
+          state.cartItems,
+          action.payload
+        ),
       };
     }
-    case CartActionTypes.REMOVE_ITEM:{
-
+    case CartActionTypes.REMOVE_ITEM: {
       return {
-
         ...state,
-        cartItems:removeCartItemUtil(state.cartItems,action.payload)
-      }
+        cartItems: removeCartItemUtil(state.cartItems, action.payload),
+      };
     }
-    
+
     default:
       return state;
   }

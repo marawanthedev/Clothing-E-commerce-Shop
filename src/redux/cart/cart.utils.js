@@ -33,20 +33,25 @@ export const increaseCartItemQuantityUtil = (previousItems, targetItemId) => {
 };
 export const decreaseCartItemQuantityUtil = (previousItems, targetItemId) => {
   const targetItem = previousItems.find(
-    (prevItem) => (prevItem.id === targetItemId)
+    (prevItem) => prevItem.id === targetItemId
   );
 
   var updatedCartItems = [];
 
-  previousItems.forEach((prevItem) => {
-    if (prevItem.id === targetItemId) {
-      if (prevItem.quantity > 1) {
-        updatedCartItems.push({ ...prevItem, quantity: prevItem.quantity - 1 });
+  if (targetItem) {
+    previousItems.forEach((prevItem) => {
+      if (prevItem.id === targetItemId) {
+        if (prevItem.quantity > 1) {
+          updatedCartItems.push({
+            ...prevItem,
+            quantity: prevItem.quantity - 1,
+          });
+        }
+      } else {
+        updatedCartItems.push(prevItem);
       }
-    } else {
-      updatedCartItems.push(prevItem);
-    }
-  });
+    });
+  }
   return updatedCartItems;
 };
 

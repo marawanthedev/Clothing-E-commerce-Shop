@@ -1,11 +1,5 @@
- import React from 'react';
+// import React from "react";
 
-
-
-const CollectionItemPopup=()=>{
-
-
-    return <div>
-        gg
-    </div>
-}
+// const CollectionItemPopup = () => {
+//   return <div>gg</div>;
+// };

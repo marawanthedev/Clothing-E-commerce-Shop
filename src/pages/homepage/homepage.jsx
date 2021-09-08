@@ -1,4 +1,4 @@
-import "./homepage.styles.scss";
+import "./homepage.scss";
 import Directory from "../../components/directory/directory.component";
 
 export default function HomePage() {

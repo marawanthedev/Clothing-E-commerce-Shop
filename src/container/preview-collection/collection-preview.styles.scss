@@ -3,7 +3,6 @@
   flex-direction: column;
   margin-bottom: 30px;
 
-
   .title {
     font-size: 28px;
     margin-bottom: 25px;
@@ -12,10 +11,12 @@
   .preview {
     display: flex;
     justify-content: space-between;
-     overflow-y: auto;
-  overflow-x: hidden;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
-  .preview::-webkit-scrollbar{
+
+  .preview::-webkit-scrollbar {
     width: 0;
     height: 0;
   }

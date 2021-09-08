@@ -5,7 +5,10 @@ import App from "./App";
 
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import  store from "./redux/store"
+import { store, persistor } from "./redux/store";
+
+//persist gate
+import { PersistGate } from "redux-persist/integration/react";
 
 ReactDOM.render(
   // provider is react-redux and by wrapping the app inside of it
@@ -14,7 +17,10 @@ ReactDOM.render(
   // so we can get dispatch actions as we want
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      {/* wrapping the app with persist gate */}
+      <PersistGate persistor={persistor}>
+        <App />
+      </PersistGate>
     </BrowserRouter>
   </Provider>,
   document.getElementById("root")

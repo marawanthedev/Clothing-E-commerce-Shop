@@ -1,9 +1,5 @@
 import "./cart-drop-down-items.styles.scss";
 
-// make sure that you are destructing the right props names
-// typescript is needed :)
-// fucking action has to be included as  a prop
-// fuck off once again
 export const CartItem = ({
   imageUrl,
   name,

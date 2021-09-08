@@ -1,8 +1,8 @@
 import React from "react";
 import "./cart-dropdown.styles.scss";
-import CustomButton from "../button/button.component";
+import CustomButton from "../../components/button/button.component";
 import { connect } from "react-redux";
-import { CartItem } from "../cart-drop-down-items/cart-drop-down-items.component";
+import { CartItem } from "../../components/cart-drop-down-items/cart-drop-down-items.component";
 import {
   DecreaseItemQuantity,
   IncreaseItemQuantity,
@@ -13,6 +13,7 @@ import {
   selectCartItems,
   selectShowCart,
 } from "../../redux/cart/cart.selectors";
+import { createStructuredSelector } from "reselect";
 
 // dynamically added components
 // can not not start a new redux connection
@@ -58,10 +59,11 @@ const CartDropDown = ({
 };
 
 //using selectors avoids unneccsarry re-renderings
-const mapStateToProps = (state) => ({
-  showCart: selectShowCart(state),
-  cartItems: selectCartItems(state),
+const mapStateToProps = createStructuredSelector({
+  showCart: selectShowCart,
+  cartItems: selectCartItems,
 });
+
 const mapDispatchToProps = (dispatch) => ({
   DecreaseItemQuantity: (itemId) => dispatch(DecreaseItemQuantity(itemId)),
   IncreaseItemQuantity: (itemId) => dispatch(IncreaseItemQuantity(itemId)),

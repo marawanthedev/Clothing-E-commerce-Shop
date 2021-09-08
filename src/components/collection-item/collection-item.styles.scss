@@ -1,13 +1,13 @@
 .collection-item {
   position: relative;
-  min-width: 20%;
+  width: 20%;
   display: flex;
   flex-direction: column;
   height: 400px;
-  margin: 0 3%;
   align-items: center;
   overflow: hidden;
   cursor: pointer;
+  margin: 1rem 0;
   &:hover {
     .image {
       width: 100%;
@@ -64,23 +64,20 @@
     display: flex;
     justify-content: space-between;
     font-size: 18px;
-
-    
   }
 }
 
-.active{
-  color:#FFD700;
+.active {
+  color: #ffd700;
 }
-.non-active{
-  color:grey;
+.non-active {
+  color: grey;
 }
 .name {
-    font-size: 18px;
-    }
+  font-size: 18px;
+}
 
-    .price {
-    font-size: 18px;
-      font-weight: 600;
-    }
-   
+.price {
+  font-size: 18px;
+  font-weight: 600;
+}

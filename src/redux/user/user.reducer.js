@@ -1,9 +1,6 @@
 // gets 2 props prev state and action
-import {UserActionTypes} from "./user.types"
-{
-  // type:
-  // payload:
-}
+import { UserActionTypes } from "./user.types";
+
 // once the app starts redux wont be able to keep track of states
 // so we need to provide it with inital state
 
