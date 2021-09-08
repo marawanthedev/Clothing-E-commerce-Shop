@@ -1,2 +1,3 @@
-#Clothing shop built by React
-#still under construction
+#Clothing shop built by React,Redux and Sass
+
+
