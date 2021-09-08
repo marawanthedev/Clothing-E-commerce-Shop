@@ -9,7 +9,6 @@ const CollectionPage = ({ collection, AddCartItem }) => {
     <div className="collection">
       <h2>{collection.title}</h2>
       <div className="collection__items">
-        {/* const {(name, price, imageUrl, addCartItemCallBack, id)} = props; */}
         {collection.items.map((item) => (
           <CollectionItem {...item} addCartItemCallBack={AddCartItem} />
         ))}
@@ -25,4 +24,5 @@ const mapStateToProps = (state, ownProps) => ({
   // since that the params is being dynamically passed we need to use the memoize helper so we can memoize the dynamically passed value and avoid not needed re-renderings
   collection: selectCollection(ownProps.match.params.categoryId)(state),
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(CollectionPage);

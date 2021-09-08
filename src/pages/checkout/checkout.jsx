@@ -7,7 +7,7 @@ import {
   RemoveItem,
 } from "../../redux/cart/cart.actions";
 import { selectCartItems } from "../../redux/cart/cart.selectors";
-
+import StripeButton from "../../components/stripe-button/stripe-button";
 const CheckoutForm = (props) => {
   const isThereCheckoutItems = () => {
     const { checkoutItems } = props;
@@ -86,14 +86,19 @@ const CheckoutForm = (props) => {
     }
   };
   const renderActionBar = () => {
+    const total = calcTotal();
     if (isThereCheckoutItems()) {
       return (
         <>
           <div className="payment-actions">
-            <div className="total">Total: ${calcTotal()}</div>
-            <button className="pay-button">
-              Pay with <i class="fab fa-cc-visa"></i>
-            </button>
+            <div className="total">Total: ${total}</div>
+
+            <div style={{ margin: "2rem 0" }}>
+              <p>Use card Number of:4539682086915318 </p>
+              <p>Card Expiration: 9 / 2032 (Month / Year) </p>
+              <p>Card CVV: 140 </p>
+            </div>
+            <StripeButton price={total} />
           </div>
         </>
       );
