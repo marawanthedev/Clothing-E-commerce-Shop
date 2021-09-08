@@ -1,0 +1,23 @@
+.collection {
+  &__items {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    & > * {
+      &:nth-child(2n) {
+        margin: 0 1.75rem;
+      }
+      &:nth-child(1n):not(:nth-child(5n)):not(:first-of-type):not(:nth-child(9)) {
+        margin: 0 1.75rem;
+      }
+      &:first-of-type,
+      &:nth-child(5n),
+      &:nth-child(9) {
+        margin-right: 1.75rem;
+      }
+    }
+  }
+}

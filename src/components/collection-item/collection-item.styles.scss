@@ -1,13 +1,13 @@
 .collection-item {
   position: relative;
-  width: 20%;
+  width: 22%;
   display: flex;
   flex-direction: column;
   height: 400px;
   align-items: center;
   overflow: hidden;
   cursor: pointer;
-  margin: 1rem 0;
+  margin: 1rem 0rem;
   &:hover {
     .image {
       width: 100%;
