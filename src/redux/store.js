@@ -10,7 +10,13 @@ import rootReducer from "./root-reducer";
 import { persistStore } from "redux-persist";
 
 //**  middlware setup
-const middlewares = [logger];
+const middlewares = [];
+//disabling the logger in production
+
+// and only logging conditionally based on process env
+if (process.env.NODE_ENV === "development") {
+  middlewares.push(logger);
+}
 
 // so here we are creating new store
 // which takes two arguments
