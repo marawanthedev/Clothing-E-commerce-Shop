@@ -4,10 +4,7 @@ import memoize from "lodash.memoize";
 
 const selectShop = (state) => state.shop;
 
-export const selectShopData = createSelector(
-  [selectShop],
-  (shop) => shop.shopData
-);
+export const selectShopData = createSelector([selectShop], (shop) => shop);
 
 // so now even dynamic values are being memoized, incase the new value was not different, no re-rendering is
 export const selectCollection = memoize((collectionUrlParam) =>

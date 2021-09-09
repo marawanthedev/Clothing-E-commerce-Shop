@@ -4,10 +4,17 @@ import { createStructuredSelector } from "reselect";
 import CollectionPreview from "../../container/collection-preview/collection-preview.component";
 import "./collections-overview.styles.scss";
 const CollectionOverView = ({ shopData }) => {
+  const keys = Object.keys(shopData);
+
   return (
     <div className="collections-overview">
-      {shopData.map(({ id, ...otherProps }) => {
-        return <CollectionPreview key={id} {...otherProps}></CollectionPreview>;
+      {keys.map((key) => {
+        return (
+          <CollectionPreview
+            key={shopData[key].id}
+            {...shopData[key]}
+          ></CollectionPreview>
+        );
       })}
     </div>
   );

@@ -15,7 +15,6 @@ import { ToggleCartDropDown } from "./redux/cart/cart.actions";
 
 class App extends React.Component {
   handleCartToggle = (e) => {
-    console.log(this.props);
     if (this.props.showCart === true) {
       // this.props.ToggleCartDropDown();
     }
