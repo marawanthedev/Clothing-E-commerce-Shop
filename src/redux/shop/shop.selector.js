@@ -11,5 +11,5 @@ export const selectShopData = createSelector(
 
 // so now even dynamic values are being memoized, incase the new value was not different, no re-rendering is
 export const selectCollection = memoize((collectionUrlParam) =>
-  createSelector([selectShop], (shop) => shop.shopData[collectionUrlParam])
+  createSelector([selectShop], (shop) => shop[collectionUrlParam])
 );
