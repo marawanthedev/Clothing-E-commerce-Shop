@@ -18,3 +18,39 @@ body {
   font-family: "Open Sans Condensed", sans-serif;
   padding: 2rem 8rem;
 }
+
+@media (max-width: 815px) {
+  html {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 730px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media (max-width:600px) {
+  html {
+    font-size: 7px;
+  }
+}
+
+@media (max-width:500px) {
+  html {
+    font-size: 6.5px;
+  }
+}
+
+@media (max-width:400px) {
+  html {
+    font-size: 6px;
+  }
+}
+
+@media (max-width:300px) {
+  html {
+    font-size: 5.25px;
+  }
+}

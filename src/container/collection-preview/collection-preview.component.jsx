@@ -15,7 +15,7 @@ const CollectionPreview = ({ title, items, AddCartItem }) => {
                 key={item.id}
                 {...item}
                 addCartItemCallBack={AddCartItem}
-              ></CollectionItem>
+              />
             );
           })}
       </div>

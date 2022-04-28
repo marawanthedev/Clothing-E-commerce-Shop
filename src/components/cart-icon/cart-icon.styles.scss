@@ -16,6 +16,25 @@
     position: absolute;
     font-size: 10px;
     font-weight: bold;
-    bottom: 12px;
+    bottom: 1.2rem;
+  }
+}
+@media (max-width: 590px) {
+  .cart-icon .shopping-icon {
+    width: 3.4rem;
+    height: 3.4rem;
+  }
+  .cart-icon .item-count {
+    bottom: 1rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .cart-icon .shopping-icon {
+    width: 4rem;
+    height: 4rem;
+  }
+  .cart-icon .item-count {
+    bottom: 0.65rem;
   }
 }

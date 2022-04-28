@@ -12,6 +12,8 @@ import { connect } from "react-redux";
 // but we need to import the required actions to make to set a prop
 import { setCurrentUser } from "./redux/user/user.actions";
 import { ToggleCartDropDown } from "./redux/cart/cart.actions";
+import { selectCollection } from "./redux/shop/shop.selector";
+import { addCollectionAndDocuments } from "./firebase/firebase.utils";
 
 class App extends React.Component {
   handleCartToggle = (e) => {
@@ -21,19 +23,22 @@ class App extends React.Component {
   };
   // ** state is replaced by redux
   unsubscribeFromAuth = null;
-  // understanding subscribition is key to understanding firebase auth
+
+  // understanding susbcribition is key to understanding firebase auth
+
   componentDidMount() {
     // note#1
     // destructuring a prop
-    const { setCurrentUser } = this.props;
+    const { setCurrentUser, collectionsArray } = this.props;
     // this tracks any auth changes which means if i singed out otu header
     // a change will be happening to the state which is gonna fire this function again and update the state
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       // note#2
 
+      // if theres is any user in auth
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
-        // note#4(preredux)
+        // note#4(pre-redux)
         userRef.onSnapshot((snapShot) => {
           setCurrentUser({
             id: snapShot.id,
@@ -49,10 +54,12 @@ class App extends React.Component {
         // set current user takes the object directly
         // bcs its already mapped to the user at the resolver
         // using the currentUser:action.payload
-        // and in thise case payload is the passed object
+        // and in this case payload is the passed object
         setCurrentUser(userAuth);
       }
     });
+
+    addCollectionAndDocuments("collections", collectionsArray);
   }
   componentWillUnmount() {
     this.unsubscribeFromAuth();
@@ -95,6 +102,7 @@ const mapDispatchToProps = (dispatch) => ({
 const mapStateToProps = ({ user, cart }) => ({
   currentUser: user.currentUser,
   showCart: cart.showCart,
+  collectionsArray: selectCollection,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

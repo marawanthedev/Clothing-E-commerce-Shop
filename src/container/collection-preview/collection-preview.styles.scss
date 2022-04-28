@@ -11,6 +11,8 @@
   .preview {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
     flex-wrap: wrap;
     overflow-y: auto;
     overflow-x: hidden;
@@ -19,5 +21,11 @@
   .preview::-webkit-scrollbar {
     width: 0;
     height: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  .preview {
+    flex-direction: column;
   }
 }

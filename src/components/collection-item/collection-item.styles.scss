@@ -1,9 +1,10 @@
 .collection-item {
   position: relative;
-  width: 22%;
+  width: 25rem;
   display: flex;
   flex-direction: column;
-  height: 400px;
+  height: 40rem;
+  justify-content: center;
   align-items: center;
   overflow: hidden;
   cursor: pointer;
@@ -24,7 +25,6 @@
     display: none;
     position: absolute;
     bottom: 10rem;
-    left: 3rem;
     background-color: rgba(196, 190, 190, 0.85);
     color: black;
     transition: all 0.2s ease-in-out;
@@ -38,8 +38,8 @@
   }
   .image {
     position: relative;
-    width: 115%;
-    height: 95%;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
     margin-bottom: 5px;
@@ -63,7 +63,7 @@
     height: 5%;
     display: flex;
     justify-content: space-between;
-    font-size: 18px;
+    font-size: 1.8rem;
   }
 }
 
@@ -74,10 +74,47 @@
   color: grey;
 }
 .name {
-  font-size: 18px;
+  font-size: 1.8rem;
 }
 
 .price {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 600;
+}
+
+@media (max-width: 950px) {
+  .collection-item {
+    width: 30rem;
+  }
+}
+
+@media (max-width: 840px) {
+  .collection-item {
+    width: 27.5rem;
+  }
+}
+@media (max-width: 520px) {
+  .collection-item {
+    width: 25rem;
+  }
+}
+@media (max-width: 450px) {
+  .collection-item {
+    width: 40rem;
+    margin: 3rem 0;
+  }
+  .name,
+  .price {
+    font-size: 2.5rem;
+  }
+  .stars {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 335px) {
+  .collection-item {
+    width: 35rem;
+    margin: 3rem 0;
+  }
 }
