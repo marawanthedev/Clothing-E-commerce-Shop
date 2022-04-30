@@ -3,7 +3,7 @@
     margin-top: 2rem;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     & > * {
@@ -17,6 +17,25 @@
       &:nth-child(5n),
       &:nth-child(9) {
         margin-right: 1.75rem;
+      }
+    }
+
+    @media (max-width: 450px) {
+      justify-content: center;
+
+      & > * {
+        &:nth-child(2n) {
+          margin: 0 0rem;
+        }
+        &:nth-child(1n):not(:nth-child(5n)):not(:first-of-type):not(:nth-child(9)) {
+          margin: 0 0rem;
+        }
+        &:first-of-type,
+        &:nth-child(5n),
+        &:nth-child(9) {
+          margin-right: 0rem;
+        }
+        margin: 3rem 0 !important;
       }
     }
   }

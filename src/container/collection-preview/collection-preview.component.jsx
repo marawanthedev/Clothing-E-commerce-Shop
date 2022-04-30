@@ -8,7 +8,7 @@ const CollectionPreview = ({ title, items, AddCartItem }) => {
       <h1 className="title">{title}</h1>
       <div className="preview">
         {items
-          .filter((item, index) => index < 4)
+          .filter((item, index) => index < 3)
           .map((item) => {
             return (
               <CollectionItem
@@ -16,7 +16,7 @@ const CollectionPreview = ({ title, items, AddCartItem }) => {
                 {...item}
                 addCartItemCallBack={AddCartItem}
               />
-            );
+          )
           })}
       </div>
     </div>

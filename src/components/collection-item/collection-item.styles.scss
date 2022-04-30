@@ -8,7 +8,7 @@
   align-items: center;
   overflow: hidden;
   cursor: pointer;
-  margin: 1rem 0rem;
+
   &:hover {
     .image {
       width: 100%;
@@ -34,6 +34,9 @@
       color: white;
       background-color: black;
       border: none;
+    }
+    @media (max-width: 450px) {
+      bottom: 17.5rem;
     }
   }
   .image {
@@ -65,6 +68,25 @@
     justify-content: space-between;
     font-size: 1.8rem;
   }
+
+  @media (max-width: 950px) {
+    width: 30rem;
+  }
+
+  @media (max-width: 840px) {
+    width: 27.5rem;
+  }
+  @media (max-width: 520px) {
+    width: 25rem;
+  }
+  @media (max-width: 450px) {
+    width: 40rem;
+    height: 70rem;
+    margin-bottom: 5rem;
+  }
+  @media (max-width: 335px) {
+    width: 35rem;
+  }
 }
 
 .active {
@@ -82,39 +104,12 @@
   font-weight: 600;
 }
 
-@media (max-width: 950px) {
-  .collection-item {
-    width: 30rem;
-  }
-}
-
-@media (max-width: 840px) {
-  .collection-item {
-    width: 27.5rem;
-  }
-}
-@media (max-width: 520px) {
-  .collection-item {
-    width: 25rem;
-  }
-}
 @media (max-width: 450px) {
-  .collection-item {
-    width: 40rem;
-    margin: 3rem 0;
-  }
   .name,
   .price {
     font-size: 2.5rem;
   }
   .stars {
     font-size: 1.8rem;
-  }
-}
-
-@media (max-width: 335px) {
-  .collection-item {
-    width: 35rem;
-    margin: 3rem 0;
   }
 }

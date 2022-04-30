@@ -1,7 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
-import { batch } from "react-redux";
 
 var config = {
   apiKey: "AIzaSyCPei-5tK_4cMoaBF6jl9ZZQ9FXTQbM20E",
