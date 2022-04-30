@@ -54,12 +54,12 @@
         align-items: center;
         background-color: white;
         margin-right: 1rem;
-        box-shadow: -5px 1px 27px -12px rgba(0, 0, 0, 0.69);
+        box-shadow: -5px 1px 2.7rem -1.2rem rgba(0, 0, 0, 0.69);
         border-radius: 5px;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
         width: 50%;
-        height: 40px;
+        height: 4rem;
         position: absolute;
         bottom: 0rem;
         left: 0rem;
@@ -100,5 +100,17 @@
   }
   &__minus {
     color: red;
+  }
+}
+
+@media (max-width: 550px) {
+  .cart-item {
+    height: 25rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .cart-item {
+    height: 27.5rem;
   }
 }

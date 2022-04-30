@@ -28,6 +28,7 @@ const CartDropDown = ({
 }) => {
   return showCart ? (
     <div className="cart-dropdown ">
+      <div className="cart-dropdown__fake-white-bg"></div>
       <ul className="cart-items">
         {cartItems.length > 0
           ? cartItems.map(({ ...cartData }, index) => {

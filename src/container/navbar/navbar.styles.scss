@@ -85,3 +85,9 @@
     margin: 0 2.5rem;
   }
 }
+@media (max-width: 320px) {
+  .header .options {
+    width: 80%;
+    font-size: 1.25rem;
+  }
+}

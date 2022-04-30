@@ -1,24 +1,50 @@
 .cart-dropdown {
   position: absolute;
-  width: 380px;
-  height: 450px;
+  width: 38rem;
+  height: 45rem;
   display: flex;
   flex-direction: column;
   padding: 0px;
-  border: 1px solid black;
   background-color: #eee8e8;
   padding: 3rem;
   top: 90px;
   right: 40px;
   z-index: 5;
   opacity: 1;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  &__fake-white-bg {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(white, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
   animation: dropDown 0.3s ease-in-out;
   .cart-items {
-    height: 340px;
+    height: 34rem;
     display: flex;
     flex-direction: column;
     // this will hide the scroll bar in case that of no overflow
     overflow-y: auto;
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: #f5f5f5;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar {
+      width: 6px;
+      background-color: #f5f5f5;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgb(65, 131, 215);
+      border-radius: 10px;
+      padding-left: 2rem;
+    }
   }
 
   .cart-btn {
@@ -28,6 +54,7 @@
     background-color: black;
     position: absolute;
     bottom: 2rem;
+    z-index: 5;
 
     &:hover {
       border: 1px solid black;
@@ -50,5 +77,15 @@
   100% {
     opacity: 1;
     transform: translateY(0rem);
+  }
+}
+
+
+@media (max-width: 400px) {
+  .cart-dropdown {
+    height: 45rem;
+  }
+  .cart-dropdown .cart-items {
+    height: 38rem;
   }
 }

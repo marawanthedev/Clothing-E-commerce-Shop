@@ -57,11 +57,11 @@ const CheckoutForm = (props) => {
         return (
           <div key={index}>
             <div className="checkout__item">
-              <img
+              <div
                 className="checkout__item__img"
                 alt="checkout item"
-                src={checkoutItem.imageUrl}
-              ></img>
+                style={{ backgroundImage: `url(${checkoutItem.imageUrl})` }}
+              />
               <div className="checkout__item__desc">{checkoutItem.name}</div>
 
               <div className="checkout__item__price">
